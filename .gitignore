@@ -1,0 +1,68 @@
+# Byte-compiled/optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python virtual environment
+env*/
+venv*/
+ENV*/
+VENV*/
+.env*/
+.venv*/
+.ENV*/
+.VENV*/
+.python-version
+
+# python-dotenv
+.env
+
+# pipenv
+Pipfile.lock
+
+# General stuff
+*.log
+*.bak
+*.tmp
+*.swp
+*.orig
+*.rej
+*.lnk
+*~
+Thumbs.db
+__MACOSX/
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+# macOS: Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# macOS: Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Visual Studio Code
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+.history/
+*.code-workspace
+
+# IDE stuff
+.idea/
+.spyderproject
+.ropeproject
