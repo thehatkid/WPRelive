@@ -1,6 +1,8 @@
 from starlette.requests import Request
 from starlette.responses import Response, JSONResponse
 
+from ..core.multiparts import SpeechboxMultipartParser
+
 
 async def route_wp_log(request: Request) -> Response:
     # Read request stream (SpeechUX log)
@@ -45,10 +47,11 @@ async def route_wp_query(request: Request) -> Response:
     if not request_id:
         return Response('No "requestid" query parameter was provided.', 400)
 
-    # Read request stream (audio data)
-    #body = b''
-    #async for chunk in request.stream():
-    #    body += chunk
+    # Read request stream and parse multipart (audiobytes)
+    parser = SpeechboxMultipartParser(request.stream())
+    audio = await parser.parse()
+
+    print('-- Got audio: {0}'.format(audio))
 
     # "version":
     # - MUST be "2.0"!

@@ -28,6 +28,8 @@ Pipfile.lock
 *.orig
 *.rej
 *.lnk
+*.dat
+*.wav
 *~
 Thumbs.db
 __MACOSX/
