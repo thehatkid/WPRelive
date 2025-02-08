@@ -2,7 +2,7 @@ from starlette.routing import Mount, Route
 from starlette.requests import Request
 from starlette.responses import Response
 
-from .api import speechrecognition
+from .api import speechrecognition, bing
 
 
 async def route_index(request: Request) -> Response:
@@ -24,7 +24,17 @@ speechreco_routes = [
     )
 ]
 
+searchsvc_routes = [
+    Route(
+        '/Search.svc/{type:str}/',
+        bing.route_search,
+        methods=['POST'],
+        name='searchservice_svc'
+    )
+]
+
 routes = [
     Route('/', route_index, methods=[], name='index'),
-    Mount('/speechreco', routes=speechreco_routes, name='speechreco')
+    Mount('/speechreco', routes=speechreco_routes, name='speechreco'),
+    Mount('/SearchService', routes=searchsvc_routes, name='searchservice')
 ]
