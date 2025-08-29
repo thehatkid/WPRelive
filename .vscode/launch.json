@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Uvicorn",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "pythonArgs": [],
+            "args": [
+                "wprelive.app:app",
+                "--host", "0.0.0.0",
+                "--port", "80",
+                "--reload",
+                "--no-server-header",
+                "--no-date-header"
+            ]
+        }
+    ]
+}
