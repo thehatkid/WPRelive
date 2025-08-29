@@ -1,24 +1,36 @@
-# Byte-compiled/optimized
+# Environments
+.env
+.envrc
+
+# Python byte-compiled, optimized
 __pycache__/
-*.py[cod]
+*.py[codz]
 *$py.class
 
-# Python virtual environment
-env*/
-venv*/
-ENV*/
-VENV*/
+# Python virtual environments
 .env*/
-.venv*/
 .ENV*/
+.venv*/
 .VENV*/
+env*/
+ENV*/
+venv*/
+VENV*/
+
+# Python package managers
+__pypackages__/
 .python-version
+#Pipfile.lock
+poetry.lock
+pdm.lock
+uv.lock
+pixi.lock
 
-# python-dotenv
-.env
-
-# pipenv
-Pipfile.lock
+# Python analyzers, linters
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
 
 # General stuff
 *.log
@@ -66,5 +78,6 @@ Temporary Items
 
 # IDE stuff
 .idea/
+.abstra/
 .spyderproject
 .ropeproject
