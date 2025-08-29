@@ -4,8 +4,8 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [packages]
-starlette = "*"
-uvicorn = "*"
+starlette = ">=0.47.3"
+uvicorn = ">=0.35.0"
 aiofiles = "*"
 python-multipart = "*"
 

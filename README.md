@@ -24,18 +24,20 @@ Microsoft Tellme uses HTTP server for speech recognition, and Bing Search also u
 - Bing Search API (need to investigate on JSON/NIF responses)
 - Perhaps more, such as Today's Image for background
 
-## Installation Guide
+## Installation
 
 Requirements:
 - [Python >= 3.9](https://www.python.org/downloads/)
 
-You need to install dependencies (preferably inside Python virtual enviromnet (venv)),
-you can install either from requirements.txt or Pipfile:
-- Legacy Pip way: `pip install -Ur requirements.txt`
+You need to install dependencies (preferably inside Python virtual environment, `venv`),
+you can install either from requirements.txt file or with [Pipenv](https://pipenv.pypa.io/):
+- Pip way: `pip install -Ur requirements.txt`
 - Pipenv way: `pipenv install`
+  - You also can install additional development packages by adding `--dev` key.
+  - Optionally add `--deploy` for production environments.
 
 Then you can start Uvicorn ASGI host:
-```
+```bash
 uvicorn --host 0.0.0.0 --port 80 wprelive.app:app
 ```
 
