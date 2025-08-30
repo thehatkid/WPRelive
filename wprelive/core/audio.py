@@ -40,7 +40,7 @@ class SpeechboxAudio:
         return self._channels
 
 
-class SpeechboxAudioGSM611(SpeechboxAudio):
+class SpeechboxAudioGSM610(SpeechboxAudio):
     def __init__(self, codec: str, sampling_rate: int, channels: str) -> None:
         super().__init__()
 

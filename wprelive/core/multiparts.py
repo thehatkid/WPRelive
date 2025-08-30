@@ -5,7 +5,7 @@ from multipart import MultipartParser
 from .audio import (
     SpeechboxAudio,
     SpeechboxAudioSirenSR,
-    SpeechboxAudioGSM611,
+    SpeechboxAudioGSM610,
 )
 
 
@@ -112,7 +112,7 @@ class SpeechboxMultipartParser:
             codec = content_type[1]['codec']
             sampling_rate = int(content_type[1]['samplingrate'])
             channels = content_type[1]['channels']
-            self.audio = SpeechboxAudioGSM611(codec, sampling_rate, channels)
+            self.audio = SpeechboxAudioGSM610(codec, sampling_rate, channels)
         elif mime == 'audio/sirensr':
             self.audio = SpeechboxAudioSirenSR()
         else:
