@@ -2,7 +2,15 @@ from starlette.routing import Mount, Route
 from starlette.requests import Request
 from starlette.responses import Response
 
-from .api import speechrecognition, bing
+from .api import speechrecognition, bing, bgimage
+
+__all__ = (
+    "route_index",
+    "speechreco_routes",
+    "searchsvc_routes",
+    "backgroundimagesvc_routes",
+    "routes",
+)
 
 
 async def route_index(request: Request) -> Response:
@@ -24,6 +32,7 @@ speechreco_routes = [
     )
 ]
 
+# Services
 searchsvc_routes = [
     Route(
         '/Search.svc/{type:str}/',
@@ -32,9 +41,18 @@ searchsvc_routes = [
         name='searchservice_svc'
     )
 ]
+backgroundimagesvc_routes = [
+    Route(
+        '/TodayImageService.svc/GetTodayImage',
+        bgimage.route_get_today_image,
+        methods=['GET'],
+        name='todayimage_svc',
+    )
+]
 
 routes = [
     Route('/', route_index, methods=[], name='index'),
     Mount('/speechreco', routes=speechreco_routes, name='speechreco'),
-    Mount('/SearchService', routes=searchsvc_routes, name='searchservice')
+    Mount('/SearchService', routes=searchsvc_routes, name='searchservice'),
+    Mount('/BackgroundImageService', routes=backgroundimagesvc_routes, name='BackgroundImageService'),
 ]
