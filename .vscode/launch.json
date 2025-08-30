@@ -1,5 +1,19 @@
 {
     "version": "0.2.0",
+    "inputs": [
+        {
+            "id": "hostAddress",
+            "type": "promptString",
+            "default": "127.0.0.1",
+            "description": "Uvicorn --host specifier"
+        },
+        {
+            "id": "hostPort",
+            "type": "promptString",
+            "default": "8081",
+            "description": "Uvicorn --port specifier"
+        }
+    ],
     "configurations": [
         {
             "name": "Uvicorn",
@@ -9,8 +23,8 @@
             "pythonArgs": [],
             "args": [
                 "wprelive.app:app",
-                "--host", "0.0.0.0",
-                "--port", "80",
+                "--host", "${input:hostAddress}",
+                "--port", "${input:hostPort}",
                 "--reload",
                 "--no-server-header",
                 "--no-date-header"

@@ -19,40 +19,44 @@ async def route_index(request: Request) -> Response:
 
 speechreco_routes = [
     Route(
-        '/wp/log',
+        "/wp/log",
         speechrecognition.route_wp_log,
-        methods=['POST'],
-        name='speechreco_log'
+        methods=["POST"],
+        name="speechreco_log",
     ),
     Route(
-        '/wp/query',
+        "/wp/query",
         speechrecognition.route_wp_query,
-        methods=['POST'],
-        name='speechreco_query'
-    )
+        methods=["POST"],
+        name="speechreco_query",
+    ),
 ]
 
 # Services
 searchsvc_routes = [
     Route(
-        '/Search.svc/{type:str}/',
+        "/Search.svc/{type:str}/",
         bing.route_search,
-        methods=['POST'],
-        name='searchservice_svc'
-    )
+        methods=["POST"],
+        name="search_svc",
+    ),
 ]
 backgroundimagesvc_routes = [
     Route(
-        '/TodayImageService.svc/GetTodayImage',
+        "/TodayImageService.svc/GetTodayImage",
         bgimage.route_get_today_image,
-        methods=['GET'],
-        name='todayimage_svc',
-    )
+        methods=["GET"],
+        name="todayimage_svc",
+    ),
 ]
 
 routes = [
-    Route('/', route_index, methods=[], name='index'),
-    Mount('/speechreco', routes=speechreco_routes, name='speechreco'),
-    Mount('/SearchService', routes=searchsvc_routes, name='searchservice'),
-    Mount('/BackgroundImageService', routes=backgroundimagesvc_routes, name='BackgroundImageService'),
+    Route("/", route_index, methods=[], name="index"),
+    Mount("/speechreco", routes=speechreco_routes, name="speechreco"),
+    Mount("/SearchService", routes=searchsvc_routes, name="SearchService"),
+    Mount(
+        "/BackgroundImageService",
+        routes=backgroundimagesvc_routes,
+        name="BackgroundImageService",
+    ),
 ]

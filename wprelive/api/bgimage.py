@@ -82,7 +82,7 @@ async def route_get_today_image(request: Request) -> Response:
     headers = {
         "ETag": etag,
         "Image-Info-Credit": quote(
-            "\"Someday\" \u00A9 Alena Aenami\nhat_kid was here :3"
+            '"Someday" \u00a9 Alena Aenami\nhat_kid was here :3'
         ),
         "Image-Info-Hotspot-1": quote(
             "Home back home...;generic;Something is familiar here;hello world;;"
